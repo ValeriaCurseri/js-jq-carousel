@@ -29,9 +29,17 @@ $(document).ready(function(){
     console.log(dots);
 
     // C. al click su un pallino: il pallino cliccato ottiene la class active - l'immagine con lo stesso indice del pallino cliccato ottiene la class active
-    // C1. active al pallino cliccato
-    // C2. active alla immagine con lo stesso indice
-
+    $('.nav .fa-circle').click(function(){
+        $('.nav .fa-circle.active').removeClass('active');      // C1. rimuovo la classe active dal pallino che la possiede
+        $(this).addClass('active');                             // C2. il pallino cliccato ottiene la class active
+        // ciclo while per capire l'indice del pallino cliccato
+        i = 0
+        while(dots[i].hasClass('active')){
+            i++;
+        }
+        console.log('il pallino cliccato ha indice ',i);
+        // C3. l'immagine con lo stesso indice del pallino cliccato ottiene la class active
+    });
 
     // ***** funzioni ***** //
 
