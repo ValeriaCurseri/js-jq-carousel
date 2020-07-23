@@ -9,7 +9,7 @@ $(document).ready(function(){
     // 3. attivo il click sulla freccia prev
 
     $('.prev').click(function(){
-        // prevImage();
+        prevImage();
     });
 
     // ***** funzioni ***** //
@@ -27,9 +27,17 @@ $(document).ready(function(){
     }
 
     // 4. scrivo la funzione per la freccia prev
-    // 4a. individuo l'immagine con la classe active con una variabile
-    // 4b. tolgo la classe active
-    // 4c. aggiungo la classe active all'elemento precedente
+
+    function prevImage(){
+        var imgActive = $('.images img.active');        // 4a. individuo l'immagine con la classe active con una variabile
+        imgActive.removeClass('active');                // 4b. tolgo la classe active
+        if(imgActive.hasClass('first')){                // 4c. aggiungo la classe active all'elemento precedente
+            $('.images img.last').addClass('active');        // se l'elemento è il primo, aggiungo active all'elemento con classe last
+        } else {
+            imgActive.prev().addClass('active');            // altrimenti basta usare prev()
+        }
+    };
+
 
     // 5. implemento la funzione della freccia next con le istruzioni per i pallini
     // 5a. individuo il pallino con la classe active con una variabile
