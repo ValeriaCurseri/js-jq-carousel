@@ -35,25 +35,24 @@ $(document).ready(function(){
 
     }
 
-
-
     // 4. scrivo la funzione per la freccia prev
 
     function prevImage(){
         var imgActive = $('.images img.active');        // 4a. individuo l'immagine con la classe active con una variabile
         imgActive.removeClass('active');                // 4b. tolgo la classe active
         if(imgActive.hasClass('first')){                // 4c. aggiungo la classe active all'elemento precedente
-            $('.images img.last').addClass('active');        // se l'elemento è il primo, aggiungo active all'elemento con classe last
+            $('.images img.last').addClass('active');       // se l'elemento è il primo, aggiungo active all'elemento con classe last
         } else {
             imgActive.prev().addClass('active');            // altrimenti basta usare prev()
         }
+        // 6. implemento la funzione della freccia prev con le istruzioni per i pallini
+        var dotActive = $('.nav .fa-circle.active');    // 6a. individuo il pallino con la classe active con una variabile
+        dotActive.removeClass('active');                // 6b. tolgo la classe active
+        if(dotActive.hasClass('first')){                // 6c. aggiungo la classe active all'elemento precedente
+            $('.nav .fa-circle.last').addClass('active');   // se l'elemento è il primo, aggiungo active all'elemento con classe last
+        } else {
+            dotActive.prev().addClass('active');            // altrimenti basta usare prev()
+        }
     };
-
-
-
-    // 6. implemento la funzione della freccia prev con le istruzioni per i pallini
-    // 6a. individuo il pallino con la classe active con una variabile
-    // 6b. tolgo la classe active
-    // 6c. aggiungo la classe active all'elemento precedente
 
 });
