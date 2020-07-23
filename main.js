@@ -13,32 +13,15 @@ $(document).ready(function(){
     });
 
     // BONUS
-    // Clicchiamo sui pallini e mostriamo l’immagine corrispondente
-    // Generiamo i pallini con JS
+    // al click su un pallino: il pallino cliccato ottiene la class active - l'immagine con lo stesso indice del pallino cliccato ottiene la class active
 
-    // A. creo un array delle immagini
-
-    var immagine = $('.images img');                    // A1. identifico la serie di oggetti da trasformare in array
-    var immagini = $.makeArray(immagine);               // A2. creo l'array degli oggetti identificati
-    console.log(immagini);
-
-    // B. creo un array dei pallini
-
-    var dot = $('.nav .fa-circle');                     // B1. identifico la serie di oggetti da trasformare in array
-    var dots = $.makeArray(dot);                        // B2. creo l'array degli oggetti identificati
-    console.log(dots);
-
-    // C. al click su un pallino: il pallino cliccato ottiene la class active - l'immagine con lo stesso indice del pallino cliccato ottiene la class active
     $('.nav .fa-circle').click(function(){
-        $('.nav .fa-circle.active').removeClass('active');      // C1. rimuovo la classe active dal pallino che la possiede
-        $(this).addClass('active');                             // C2. il pallino cliccato ottiene la class active
-        // ciclo while per capire l'indice del pallino cliccato
-        i = 0
-        while(dots[i].hasClass('active')){
-            i++;
-        }
-        console.log('il pallino cliccato ha indice ',i);
-        // C3. l'immagine con lo stesso indice del pallino cliccato ottiene la class active
+        $('.nav .fa-circle.active').removeClass('active');      // A. rimuovo la classe active dal pallino che la possiede
+        $(this).addClass('active');                             // B. il pallino cliccato ottiene la class active
+        var dotActiveIndex = $(this).index();                   // C. individuo l'index del pallino cliccato
+        var imgActive = $('.images img').eq(dotActiveIndex);    // D. individuo l'immagine con lo stesso index del pallino cliccato
+        $('.images img.active').removeClass('active');          // E. rimuovo la classe active dall'immagine che la possiede
+        imgActive.addClass('active');                           // F. do all'immagine con lo stesso indice del pallino cliccato la class active
     });
 
     // ***** funzioni ***** //
