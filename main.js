@@ -24,7 +24,18 @@ $(document).ready(function(){
         } else {
             imgActive.next().addClass('active');            // altrimenti basta usare next()
         }
+        // 5. implemento la funzione della freccia next con le istruzioni per i pallini
+        var dotActive = $('.nav .fa-circle.active');    // 5a. individuo il pallino con la classe active con una variabile
+        dotActive.removeClass('active');                // 5b. tolgo la classe active
+        if(dotActive.hasClass('last')){                 // 5c. aggiungo la classe active all'elemento successivo
+            $('.nav .fa-circle.first').addClass('active');  // se l'elemento è l'ultimo, aggiungo active all'elemento con classe first
+        } else {
+            dotActive.next().addClass('active');            // altrimenti basta usare next()
+        }
+
     }
+
+
 
     // 4. scrivo la funzione per la freccia prev
 
@@ -39,10 +50,6 @@ $(document).ready(function(){
     };
 
 
-    // 5. implemento la funzione della freccia next con le istruzioni per i pallini
-    // 5a. individuo il pallino con la classe active con una variabile
-    // 5b. tolgo la classe active
-    // 5c. aggiungo la classe active all'elemento successivo
 
     // 6. implemento la funzione della freccia prev con le istruzioni per i pallini
     // 6a. individuo il pallino con la classe active con una variabile
