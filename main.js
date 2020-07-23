@@ -12,6 +12,27 @@ $(document).ready(function(){
         prevImage();
     });
 
+    // BONUS
+    // Clicchiamo sui pallini e mostriamo l’immagine corrispondente
+    // Generiamo i pallini con JS
+
+    // A. creo un array delle immagini
+
+    var immagine = $('.images img');                    // A1. identifico la serie di oggetti da trasformare in array
+    var immagini = $.makeArray(immagine);               // A2. creo l'array degli oggetti identificati
+    console.log(immagini);
+
+    // B. creo un array dei pallini
+
+    var dot = $('.nav .fa-circle');                     // B1. identifico la serie di oggetti da trasformare in array
+    var dots = $.makeArray(dot);                        // B2. creo l'array degli oggetti identificati
+    console.log(dots);
+
+    // C. al click su un pallino: il pallino cliccato ottiene la class active - l'immagine con lo stesso indice del pallino cliccato ottiene la class active
+    // C1. active al pallino cliccato
+    // C2. active alla immagine con lo stesso indice
+
+
     // ***** funzioni ***** //
 
     // 2. scrivo la funzione per la freccia next
